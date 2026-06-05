@@ -4,8 +4,6 @@
 > **Recorte:** Contratações/ateste (Lei 14.133/2021), coerente com `C_mapa_de_atores_v3.md`.
 > **Consistência com o grill (rubrica):** *todos* os atores abaixo aparecem no transcript `C_grill_transcript.md` — a última coluna da tabela cita a rodada onde cada um surge. Atores **fora** do transcript foram deliberadamente **excluídos** para não quebrar a consistência (ex.: *Ordenador de Despesa*, *STN*, *STF* como nó isolado).
 >
-> *Nota:* o exemplo de Mermaid no enunciado (Cidadão→IVR→Roteador→Atendente) refere-se ao serviço da **URA/Seguro-Desemprego** (exercício 2.1 da aula02), que é outra jornada e cujos atores **não** constam do nosso grill. Por isso o diagrama abaixo usa os atores da jornada de contratações.
-
 ---
 
 ## Diagrama (Mermaid)
