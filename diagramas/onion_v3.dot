@@ -1,0 +1,34 @@
+digraph OnionV3 {
+  compound=true;
+  rankdir=TB;
+  graph [fontname="Helvetica", style="rounded", color="#888888"];
+  node  [shape=box, style="rounded,filled", fontname="Helvetica", fillcolor="#F5F5F5"];
+
+  subgraph cluster6 {
+    label="AMBIENTE — Mercado fornecedor & Retaguarda sistêmica";
+    n6 [label="Contratada · Subcontratados · Terceirizados\n[!] Fábricas de IMR / consultorias de compliance = CAPTURA\n(falsos positivos de conformidade)\nSistemas: SEGES/MGI · SGD/SISP · STN · PNCP <-> SIAFI", fillcolor="#FFF3E0"];
+
+    subgraph cluster5 {
+      label="EXTERNAL ASSURANCE — fora da estrutura de gestão (sobreposta)";
+      n5 [label="TCU (externo) · CGU (Alice/Radar, sobreposição)\nSTF (Tema 246) · MP\ncaráter fiscalizatório / sancionatório", fillcolor="#FFCDD2"];
+
+      subgraph cluster4 {
+        label="3ª LINHA — Avaliação independente (assurance)";
+        n4 [label="AUDIN\nassurance objetiva, A POSTERIORI, por amostragem\n(NÃO valida ateste antes do pagamento)", fillcolor="#E1BEE7"];
+
+        subgraph cluster3 {
+          label="2ª LINHA — Supervisão, conformidade e riscos";
+          n3 [label="Procuradoria/Jurídico (consultoria + conformidade)\nGestão de Riscos\nAlta Adm. / Comitê de Governança (direção)\n[TIC] CGD", fillcolor="#C5CAE9"];
+
+          subgraph cluster2 {
+            label="1ª LINHA — Execução do controle (dona do lastro do ateste, EX ANTE)";
+            n2 [label="Gestor do Contrato · Fiscais (Téc/Adm/Set)\nComissão de Recebimento · Ordenador de Despesa · Preposto\n[TIC] Fiscal Técnico -> afere IMR/NMS · Integrante Requisitante (RD)", fillcolor="#BBDEFB"];
+
+            core [label="● NÚCLEO ●\nÁrea requisitante / usuário = VALIDADOR\n(gate obrigatório: valida ANTES do ateste e da liquidação)\n+ Controle Social / LAI (auditoria contínua)",
+                  shape=doublecircle, fillcolor="#C8E6C9"];
+          }
+        }
+      }
+    }
+  }
+}

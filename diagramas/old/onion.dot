@@ -1,0 +1,39 @@
+digraph Onion {
+  compound=true;
+  rankdir=TB;
+  graph [fontname="Helvetica", style="rounded", color="#888888"];
+  node  [shape=box, style="rounded,filled", fontname="Helvetica", fillcolor="#F5F5F5"];
+
+  subgraph cluster6 {
+    label="Camada 6 — Normatizadores & Sistemas";
+    n6 [label="SEGES/MGI · SGD/SISP · STN\nPNCP <-> SIAFI <-> Compras.gov.br", fillcolor="#ECEFF1"];
+
+    subgraph cluster5 {
+      label="Camada 5 — Fornecedor & Intermediários";
+      n5 [label="Contratada · Subcontratados\nTerceirizados · Compliance", fillcolor="#FFF3E0"];
+
+      subgraph cluster4 {
+        label="Camada 4 — Controle & Judiciário (alto poder)";
+        n4 [label="CGU (Alice/Radar) · TCU\nSTF (Tema 246) · MP", fillcolor="#FFEBEE"];
+
+        subgraph cluster3 {
+          label="Camada 3 — Defesa Interna";
+          n3 [label="Procuradoria/Jurídico\nAUDIN (3ª linha)", fillcolor="#F3E5F5"];
+
+          subgraph cluster2 {
+            label="Camada 2 — Decisores";
+            n2 [label="Ordenador de Despesa · Alta Adm.\nCoord. Orçamentário · Financeiro\n[TIC] CGD · Integrante Requisitante (RD)", fillcolor="#E8EAF6"];
+
+            subgraph cluster1 {
+              label="Camada 1 — Operadores (linha de frente)";
+              n1 [label="Gestor do Contrato · Fiscais (Téc/Adm/Set)\nComissão de Recebimento · Preposto\n[TIC] Fiscal Técnico -> afere IMR/NMS", fillcolor="#E3F2FD"];
+
+              core [label="● NÚCLEO ●\nÁrea requisitante / usuário do contrato\n+ beneficiário + Controle Social (LAI)",
+                    shape=doublecircle, fillcolor="#C8E6C9"];
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+flowchart TD
+    FabricaIMR["Fábrica de medição / IMR<br/>consultoria de compliance<br/>(CAPTURA)"] -. "falsos positivos<br/>de conformidade" .-> FiscalTec
+    Preposto["Preposto"] -. "assimetria técnica" .-> FiscalTec
+    Contratada["Contratada"] -->|"entrega / medição"| FiscalTec["Fiscal Técnico — 1ª linha<br/>(afere IMR/NMS)"]
+
+    FiscalTec -->|"propõe ateste"| GATE{"GATE<br/>requisitante validou<br/>o uso/negócio?"}
+    Requisitante["Área Requisitante<br/>VALIDADOR (voz crítica)"] -->|"valida recebimento"| GATE
+    GATE -->|"sim"| Gestor["Gestor do Contrato — 1ª linha"]
+    GATE -->|"pulado"| Sombra["ZONA DE SOMBRA<br/>ateste técnico OK / negócio disfuncional<br/>= failure demand"]
+    Sombra -.->|"ateste presumido"| Gestor
+
+    Gestor -->|"consolida recebimento"| Ordenador["Ordenador de Despesa — 1ª linha"]
+    Ordenador -->|"liquidação"| SIAFI["Execução Financeira (SIAFI)"]
+    SIAFI -->|"Ordem Bancária"| Contratada
+
+    Procuradoria["Procuradoria — 2ª linha"] -. "conformidade / supervisão" .-> Gestor
+    STF["STF — Tema 246"] -->|"régua: culpa in vigilando"| Procuradoria
+    AUDIN["AUDIN — 3ª linha"] -. "assurance A POSTERIORI<br/>por amostragem (não trava pagamento)" .-> Ordenador
+    Ext["TCU / CGU — external assurance"] -. "fiscalização sobreposta<br/>(pós-pagamento)" .-> Ordenador
+    Social["Controle social / LAI / jornalismo de dados"] -->|"denúncia / representação"| Ext
+    PNCP["PNCP"] x-.-x|"ruptura de interoperabilidade"| SIAFI
+
+    classDef sombra fill:#ffcdd2,stroke:#c62828,color:#000;
+    classDef captura fill:#ffe0b2,stroke:#ef6c00,color:#000;
+    classDef validador fill:#c8e6c9,stroke:#2e7d32,color:#000;
+    classDef assurance fill:#fff9c4,stroke:#f9a825,color:#000;
+    class Sombra sombra;
+    class FabricaIMR captura;
+    class Requisitante,GATE validador;
+    class AUDIN,Ext,STF,Social assurance;

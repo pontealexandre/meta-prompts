@@ -1,0 +1,31 @@
+flowchart LR
+    DFD["1· DFD<br/>formalização da demanda"] --> PLAN["2· Planejamento<br/>ETP · TR · Matriz de Riscos · IMR definido"]
+    PLAN --> CONTR["3· Contratação<br/>empenho (NE) · publicação PNCP"]
+    CONTR --> EXEC["4· Execução<br/>Contratada entrega / medição"]
+    EXEC --> GATE{"5· Requisitante<br/>validou o uso/negócio?"}
+    GATE -->|"sim (raro)"| ATESTE["6· Ateste<br/>recebimento prov./def."]
+    GATE -->|"não / pulado"| ATESTE
+    ATESTE --> LIQ["7· Liquidação (SIAFI)"]
+    LIQ --> PGTO["8· Pagamento<br/>Ordem Bancária"]
+    PGTO --> FECH["9· Fechamento de exercício"]
+
+    %% pontos de fricção / failure demand
+    PLAN -.-> Z(["Mapa de Riscos vira pro forma (Zumbi)"])
+    EXEC -.-> F3["⚠ F3 — IMR FANTASMA<br/>fiscal não coleta indicadores"]
+    GATE -.-> F1["⚠ F1 — GATE PULADO<br/>ateste técnico OK / negócio disfuncional"]
+    ATESTE -.-> F2["⚠ F2 — ATESTE PRESUMIDO<br/>assina sem lastro (zona de sombra)"]
+    LIQ -.-> F5["⚠ F5 — RUPTURA PNCP↔SIAFI<br/>conciliação por planilha"]
+    FECH -.-> F4["⚠ F4 — RAP<br/>empenho sem liquidação efetiva"]
+
+    %% failure demand resultante
+    F2 -.->|"failure demand"| FD["Glosa · retrabalho · representação<br/>CGU/TCU · judicialização (Tema 246)"]
+    F1 -.->|"failure demand"| FD
+
+    classDef fric fill:#ffcdd2,stroke:#c62828,color:#000;
+    classDef val fill:#c8e6c9,stroke:#2e7d32,color:#000;
+    classDef zumbi fill:#ffe0b2,stroke:#ef6c00,color:#000;
+    classDef fd fill:#f3e5f5,stroke:#6a1b9a,color:#000;
+    class F1,F2,F3,F4,F5 fric;
+    class GATE val;
+    class Z zumbi;
+    class FD fd;

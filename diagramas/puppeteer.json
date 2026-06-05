@@ -1,0 +1,4 @@
+{
+  "executablePath": "C:\\Users\\alefp\\.cache\\puppeteer\\chrome\\win64-149.0.7827.22\\chrome-win64\\chrome.exe",
+  "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+}

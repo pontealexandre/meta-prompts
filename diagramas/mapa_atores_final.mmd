@@ -1,0 +1,33 @@
+flowchart LR
+    Requisitante["Área Requisitante / Usuário<br/>VALIDADOR (gate)"] -->|"valida recebimento<br/>(gate obrigatório)"| Fiscal
+    Contratada["Preposto / Fornecedor"] -->|"entrega + medição"| Fiscal["Fiscal (Técnico)<br/>1ª linha"]
+    FabricaIMR["Fábrica de medição / IMR<br/>Consultoria de compliance — CAPTURA"] -. "falsos positivos<br/>de conformidade" .-> Fiscal
+    RD["Integrante Requisitante (RD)"] -->|"define NMS"| Fiscal
+    CGD["Comitê de Governança Digital (CGD)"] -->|"aprova PDTI"| RD
+    SGD["SGD / SISP"] -->|"normatiza (IN SGD 94/2022)"| Fiscal
+
+    Fiscal -->|"ateste (lastro fático)"| Gestor["Gestor do Contrato<br/>1ª linha"]
+    Procuradoria["Procuradoria / Jurídico<br/>2ª linha"] -. "conformidade prévia<br/>+ supervisão" .-> Gestor
+    Gestor -->|"consolida recebimento"| Ordenador["Ordenador de Despesa — 1ª linha<br/>(regularidade processual/orçamentária)"]
+    Ordenador -->|"ordena liquidação e pagamento<br/>(segregação: atesta ≠ ordena)"| Financeiro["Coord. Orçamentário / Setor Financeiro<br/>1ª linha (empenho · RAP · OB)"]
+    Financeiro -->|"liquidação / Ordem Bancária"| Sistemas[("PNCP / SIAFI")]
+
+    AUDIN["AUDIN — 3ª linha"] -. "assurance A POSTERIORI<br/>(por amostragem)" .-> Gestor
+    AltaAdm["Alta Administração /<br/>Comitê de Governança"] -->|"dona do mapa / direção"| AUDIN
+    Social["Controle social / LAI /<br/>Jornalismo de dados"] -->|"denúncia / representação"| TCU
+    TCU["TCU — external assurance"] -. "fiscalização pós-pagamento" .-> Ordenador
+    CGU["CGU — external assurance<br/>(Alice / Radar)"] -. "alerta de anomalia" .-> Ordenador
+
+    STN(["STN — regra de fundo (limites via SIAFI)<br/>NÃO-ATOR / contexto sistêmico"]) -. "restrição" .-> Sistemas
+    Tema246(["Tema 246 / Judiciário — norma de risco<br/>NÃO-ATOR (responsabilização ex post)"]) -. "consequência da<br/>failure demand" .-> Financeiro
+
+    classDef val fill:#c8e6c9,stroke:#2e7d32,color:#000;
+    classDef cap fill:#ffe0b2,stroke:#ef6c00,color:#000;
+    classDef ext fill:#ffcdd2,stroke:#c62828,color:#000;
+    classDef sys fill:#eceff1,stroke:#607d8b,color:#000;
+    classDef ctx fill:#fafafa,stroke:#bdbdbd,color:#666,stroke-dasharray: 4 3;
+    class Requisitante val;
+    class FabricaIMR cap;
+    class TCU,CGU ext;
+    class Sistemas sys;
+    class STN,Tema246 ctx;

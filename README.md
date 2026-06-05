@@ -14,7 +14,7 @@
 | --- | --- |
 | [A_meta_prompt.md](./A_meta_prompt.md) | Meta-prompt (Parte A) |
 | [B_relatorio_assistente_v1.md](./B_relatorio_assistente_v1.md) | Pesquisa inicial — Assistente 1 (Gemini) |
-| [B_relatorio_auditoria_v1.md](./B_relatorio_auditoria_v1.md) | Auditoria v1 — Assistente 2 (ChatGPT) |
+| [B_relatorio_auditoria_v1.md](./B_relatorio_auditoria_v1.md) | Auditoria v1 — Assistente 2 (Claude) |
 | [B_relatorio_assistente_v2.md](./B_relatorio_assistente_v2.md) | Revisão v2 — Assistente 1 |
 | [B_relatorio_auditoria_v2.md](./B_relatorio_auditoria_v2.md) | Auditoria v2 — Assistente 2 |
 | [B_relatorio_assistente_v3.md](./B_relatorio_assistente_v3.md) | Versão final v3 — Assistente 1 |
@@ -35,3 +35,11 @@
 ```bash
 cd meta-prompts
 autograde validar 2.1
+
+---
+
+## Nota Metodológica
+
+O fluxo adversarial foi conduzido com modelos de **famílias concorrentes**: **Gemini** (Assistente/pesquisador) e **Claude** (Auditor), garantindo o choque necessário entre as versões.
+
+O rascunho original (`B_relatorio_assistente_v1.md`) foi **reconstituído a partir da matriz de tratamento da v2 e dos apontamentos da `B_relatorio_auditoria_v1.md`**, para fins de rastreabilidade e completude do histórico adversarial — preservando a correspondência exata entre as falhas auditadas e o texto-alvo.
