@@ -213,5 +213,3 @@ O Judiciário deve permanecer fora das raias de atores ativos, figurando apenas 
 | 9 | Governança | **Híbrido**: dono = Alta Adm/Comitê; AUDIN não-dona (*self-review*); Gestor = usuário | Revisão híbrida (calendário + evento) |
 | 10 | Consolidação + próximo | Gerar **v3** antes de avançar; próximo = **(a) fluxo as-is** | v3 consolida R7–R9; as-is enfileirado |
 | 11 | Cadeia orçamentário-financeira | Ordenador = 1ª linha (segregação dentro da 1ª linha); Coord. Orçamentário = ator ativo; STN e Judiciário/Tema 246 = não-atores (regra de fundo / norma de risco) | +2 atores no mapa final; STN/Judiciário como contexto |
-
-> **Regra de ouro registrada (McNamara, ICAEW):** *"Se vai escutar, tem que estar pronto pra agir — ou explicar por que não vai agir."* O mapa é insumo; sem plano, vira PowerPoint engavetado.
