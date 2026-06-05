@@ -42,4 +42,3 @@ autograde validar 2.1
 
 O fluxo adversarial foi conduzido com modelos de **famílias concorrentes**: **Gemini** (Assistente/pesquisador) e **Claude** (Auditor), garantindo o choque necessário entre as versões.
 
-O rascunho original (`B_relatorio_assistente_v1.md`) foi **reconstituído a partir da matriz de tratamento da v2 e dos apontamentos da `B_relatorio_auditoria_v1.md`**, para fins de rastreabilidade e completude do histórico adversarial — preservando a correspondência exata entre as falhas auditadas e o texto-alvo.
